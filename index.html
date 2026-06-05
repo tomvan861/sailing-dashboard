@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ונונו תומר — הפלגת לפקדה 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#060d1a;--panel:#0d1526;--panel2:#111d30;--panel3:#162038;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--border3:rgba(255,255,255,0.18);
+  --text:#f0f6ff;--text2:#a8c0d8;--text3:#5a7a96;
+  --accent:#38bdf8;--accent2:#6366f1;--green:#10b981;--amber:#f59e0b;
+  --grad1:linear-gradient(135deg,#0ea5e9,#6366f1);
+  --grad2:linear-gradient(135deg,#38bdf8,#a78bfa);
+  --shadow:0 24px 64px rgba(0,0,0,0.6);
+  --radius:16px;--radius2:12px;--radius3:8px;
+}
+.light{
+  --bg:#f0f4f8;--panel:#ffffff;--panel2:#f4f7fa;--panel3:#eaf0f6;
+  --border:rgba(0,0,0,0.07);--border2:rgba(0,0,0,0.12);--border3:rgba(0,0,0,0.18);
+  --text:#0f1923;--text2:#4a6580;--text3:#94aabe;
+}
+body{font-family:'Heebo',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-transition:background .3s,color .3s;transition:background .3s,color .3s;overflow-x:hidden}
+body:not(.light)::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 40% at 10% -10%,rgba(56,189,248,0.08),transparent),
+             radial-gradient(ellipse 60% 40% at 90% 20%,rgba(99,102,241,0.08),transparent)}
+
+/* LAYOUT */
+.app{display:flex;min-height:100vh;position:relative;z-index:1}
+.sidebar{width:256px;flex-shrink:0;background:var(--panel);border-left:1px solid var(--border);
+  display:flex;flex-direction:column;position:fixed;top:0;right:0;bottom:0;z-index:100;
+  -webkit-transition:transform .3s cubic-bezier(.4,0,.2,1);transition:transform .3s cubic-bezier(.4,0,.2,1);
+  overflow-y:auto;-webkit-overflow-scrolling:touch}
+.main{margin-right:256px;flex:1;padding:28px 24px 60px}
+
+/* SIDEBAR */
+.sidebar-logo{padding:22px 18px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-icon{width:36px;height:36px;border-radius:10px;background:var(--grad1);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.logo-text{font-size:13px;font-weight:700;color:var(--text);line-height:1.2}
+.logo-sub{font-size:10px;color:var(--text3)}
+.sidebar-section{padding:14px 12px 6px;font-size:10px;font-weight:600;color:var(--text3);letter-spacing:1px;text-transform:uppercase;flex-shrink:0}
+.sidebar-nav{padding:0 8px;display:flex;flex-direction:column;gap:2px;flex-shrink:0}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--radius3);font-size:13px;color:var(--text2);cursor:pointer;-webkit-transition:background .15s,color .15s;transition:background .15s,color .15s;border:none;background:none;width:100%;text-align:right;font-family:inherit;-webkit-appearance:none}
+.nav-item:hover,.nav-item:active{background:rgba(255,255,255,0.07);color:var(--text)}
+.nav-item.active{background:rgba(56,189,248,0.12);color:var(--accent);font-weight:500}
+.sidebar-tl{padding:10px 12px;flex:1;overflow-y:auto;min-height:0;-webkit-overflow-scrolling:touch}
+.tl-title{font-size:10px;font-weight:600;color:var(--text3);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.tl-item{display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer}
+.tl-item:last-child{border-bottom:none}
+.tl-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px}
+.tl-date{font-size:10px;color:var(--text3)}
+.tl-name{font-size:12px;color:var(--text2);line-height:1.3}
+.sidebar-bottom{padding:14px 12px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.theme-btn{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:1px solid var(--border2);border-radius:var(--radius3);padding:7px 12px;font-size:12px;color:var(--text2);cursor:pointer;font-family:inherit;-webkit-appearance:none;-webkit-transition:all .15s;transition:all .15s}
+
+/* TOPBAR */
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:10px}
+.topbar-left h1{font-size:20px;font-weight:800;color:var(--text)}
+.topbar-left p{font-size:12px;color:var(--text3);margin-top:2px}
+.tag-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:1px solid var(--border2);border-radius:999px;padding:6px 14px;font-size:12px;color:var(--text2)}
+.status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;background:var(--green);box-shadow:0 0 6px rgba(16,185,129,0.9)}
+
+/* HERO */
+.hero{border-radius:24px;background:linear-gradient(135deg,#071b35 0%,#0d1a42 40%,#12094e 100%);border:1px solid rgba(56,189,248,0.15);box-shadow:var(--shadow);padding:32px 36px;margin-bottom:20px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;left:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(56,189,248,0.15),transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;right:80px;width:380px;height:380px;background:radial-gradient(circle,rgba(99,102,241,0.12),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.25);border-radius:999px;padding:4px 14px;font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+.hero-title{font-size:32px;font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:10px}
+.hero-title span{background:var(--grad2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{font-size:13px;color:rgba(255,255,255,0.5);max-width:400px;line-height:1.7}
+.hero-pills{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.hero-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:999px;padding:5px 13px;font-size:12px;color:rgba(255,255,255,0.6)}
+.hero-right{text-align:center;flex-shrink:0}
+.hero-nm{font-size:58px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px}
+.hero-nm-label{font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px}
+.hero-progress{margin-top:14px;background:rgba(255,255,255,0.08);border-radius:999px;height:5px;overflow:hidden;width:150px;margin-right:auto;margin-left:auto}
+.hero-progress-bar{height:100%;width:0%;background:var(--grad1);border-radius:999px;-webkit-transition:width 1.5s cubic-bezier(.4,0,.2,1);transition:width 1.5s cubic-bezier(.4,0,.2,1)}
+.hero-progress-label{font-size:11px;color:rgba(255,255,255,0.35);margin-top:6px}
+
+/* KPI */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+.kpi-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:20px;-webkit-transition:border-color .2s,-webkit-transform .2s;transition:border-color .2s,transform .2s}
+.kpi-card:hover{border-color:var(--border2);-webkit-transform:translateY(-2px);transform:translateY(-2px)}
+.kpi-icon{width:36px;height:36px;border-radius:var(--radius3);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:14px}
+.kpi-icon.blue{background:rgba(56,189,248,0.12)}
+.kpi-icon.indigo{background:rgba(99,102,241,0.12)}
+.kpi-icon.green{background:rgba(16,185,129,0.12)}
+.kpi-icon.amber{background:rgba(245,158,11,0.12)}
+.kpi-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+.kpi-val{font-size:26px;font-weight:800;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.kpi-sub{font-size:11px;color:var(--text3);margin-top:3px}
+
+/* WEATHER */
+.weather-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:8px}
+.weather-day{text-align:center}
+.weather-date{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.weather-icon{font-size:20px;margin-bottom:4px}
+.weather-temp{font-size:14px;font-weight:700;color:var(--text)}
+.weather-wind{font-size:10px;color:var(--text3);margin-top:2px}
+.weather-sea{font-size:10px;color:var(--accent);margin-top:2px}
+.weather-note{font-size:11px;color:var(--text3);margin-bottom:20px;padding-right:2px}
+.weather-note a{color:var(--accent)}
+
+/* MAP */
+.map-section{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:20px;overflow:hidden}
+.map-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border)}
+.map-header h3{font-size:14px;font-weight:600;color:var(--text)}
+#map-container{height:340px;position:relative;overflow:hidden}
+
+/* LEAFLET */
+.leaflet-container{background:#091520 !important;font-family:inherit !important}
+.leaflet-popup-content-wrapper{background:#0f1929;border:1px solid rgba(56,189,248,0.25);border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
+.leaflet-popup-tip{background:#0f1929}
+.leaflet-popup-content{margin:12px 14px;color:#f0f6ff}
+
+/* CONTENT GRID */
+.content-grid{display:grid;grid-template-columns:1fr 268px;gap:20px;align-items:start}
+
+/* FILTERS */
+.filters-panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:14px}
+.filters-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.filters-title{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.8px}
+.filter-row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+.filter-group{display:flex;flex-direction:column;gap:5px}
+.filter-label{font-size:11px;color:var(--text3)}
+select,input[type="text"]{height:36px;padding:0 12px;border-radius:var(--radius3);border:1px solid var(--border2);background:var(--panel2);color:var(--text);font-size:13px;font-family:inherit;min-width:145px;outline:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-transition:border-color .15s;transition:border-color .15s}
+select:focus,input:focus{border-color:var(--accent)}
+.type-toggle{display:flex;border:1px solid var(--border2);border-radius:var(--radius3);overflow:hidden;height:36px;background:var(--panel2)}
+.type-btn{padding:0 15px;border:none;background:transparent;color:var(--text3);font-size:13px;font-family:inherit;cursor:pointer;-webkit-appearance:none;-webkit-transition:background .15s,color .15s;transition:background .15s,color .15s}
+.type-btn.active{background:rgba(56,189,248,0.12);color:var(--accent);font-weight:600}
+.btn-reset{height:36px;padding:0 13px;border-radius:var(--radius3);border:1px solid var(--border2);background:transparent;color:var(--text3);font-size:13px;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:6px;-webkit-appearance:none}
+.btn-reset:hover{background:var(--panel2);color:var(--text)}
+
+/* RESULTS */
+.results-count{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.results{display:flex;flex-direction:column;gap:10px}
+.day-header{display:flex;align-items:center;gap:10px;padding:12px 0 6px;border-bottom:1px solid var(--border);margin-top:8px}
+.day-header:first-child{margin-top:0}
+.day-badge{background:rgba(56,189,248,0.15);border:1px solid rgba(56,189,248,0.2);color:var(--accent);font-size:11px;font-weight:600;padding:3px 12px;border-radius:999px}
+.day-name{font-size:12px;font-weight:500;color:var(--text2);text-transform:uppercase;letter-spacing:.5px}
+.day-dist{font-size:11px;color:var(--text3);margin-right:auto}
+.leg-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius2);padding:15px 17px;border-right:3px solid transparent;-webkit-transition:border-color .2s,-webkit-transform .2s;transition:border-color .2s,transform .2s}
+.leg-card:hover{border-color:var(--border2);-webkit-transform:translateY(-2px);transform:translateY(-2px)}
+.leg-card.leg{border-right-color:var(--accent)}
+.leg-card.spot{border-right-color:var(--amber)}
+.leg-top{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+.leg-badge{font-size:11px;font-weight:600;padding:4px 11px;border-radius:999px}
+.leg-badge.leg-type{background:rgba(56,189,248,0.1);color:var(--accent);border:1px solid rgba(56,189,248,0.2)}
+.leg-badge.spot-type{background:rgba(245,158,11,0.1);color:var(--amber);border:1px solid rgba(245,158,11,0.25)}
+.leg-name{font-size:14px;font-weight:600;color:var(--text);flex:1;line-height:1.3}
+.arrow-row{display:flex;align-items:center;gap:8px;background:var(--panel2);border-radius:var(--radius3);padding:8px 12px;margin-bottom:11px;font-size:13px;color:var(--text3);flex-wrap:wrap}
+.arrow-row .place{color:var(--text);font-weight:500}
+.leg-meta{display:flex;gap:18px;margin-bottom:11px;flex-wrap:wrap}
+.leg-field{font-size:13px;color:var(--text3);display:flex;align-items:center;gap:5px}
+.leg-field span{color:var(--text);font-weight:600}
+.leg-coords{font-size:11px;color:var(--text3);background:var(--panel2);border:1px solid var(--border);border-radius:var(--radius3);padding:7px 11px;font-family:monospace,Courier,sans-serif;margin-bottom:11px;display:flex;align-items:center;gap:8px}
+.coord-text{flex:1;line-height:1.4;word-break:break-all}
+.leg-actions{display:flex;gap:8px;flex-wrap:wrap}
+.action-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:7px 13px;border-radius:var(--radius3);border:1px solid var(--border2);background:transparent;color:var(--text3);cursor:pointer;text-decoration:none;font-family:inherit;-webkit-appearance:none;-webkit-transition:all .15s;transition:all .15s}
+.action-btn:hover,.action-btn:active{background:var(--panel2);color:var(--text)}
+.action-btn.primary{background:rgba(56,189,248,0.1);border-color:rgba(56,189,248,0.25);color:var(--accent)}
+.action-btn.primary:hover{background:rgba(56,189,248,0.18)}
+.copy-btn{background:none;border:none;cursor:pointer;color:var(--text3);padding:2px 6px;font-size:15px;display:flex;align-items:center;font-family:inherit}
+
+/* SIDE PANEL */
+.side-panel{display:flex;flex-direction:column;gap:14px}
+.side-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.side-card-title{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px}
+.progress-items{display:flex;flex-direction:column;gap:9px}
+.progress-item{display:flex;align-items:center;gap:10px;font-size:12px}
+.progress-item-label{color:var(--text2);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.progress-item-bar{flex:2;height:4px;background:var(--panel3);border-radius:999px;overflow:hidden}
+.progress-item-fill{height:100%;border-radius:999px;background:var(--grad1)}
+.progress-item-val{color:var(--text3);font-size:11px;width:34px;text-align:left;flex-shrink:0}
+.eta-item{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}
+.eta-item:last-child{border-bottom:none}
+.eta-leg{font-size:11px;color:var(--text3)}
+.eta-time{font-size:13px;font-weight:600;color:var(--text)}
+.eta-badge{font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(16,185,129,0.12);color:var(--green);border:1px solid rgba(16,185,129,0.2)}
+.intel-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px}
+.intel-row:last-child{border-bottom:none}
+
+/* EMPTY */
+.empty{text-align:center;padding:3rem 1rem;color:var(--text3);font-size:14px;background:var(--panel);border-radius:var(--radius);border:1px solid var(--border)}
+
+/* MOBILE */
+.mobile-topbar{display:none;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--panel);border-bottom:1px solid var(--border);position:-webkit-sticky;position:sticky;top:0;z-index:50}
+.hamburger{background:var(--panel2);border:1px solid var(--border2);border-radius:var(--radius3);padding:8px 12px;cursor:pointer;color:var(--text2);font-size:20px;-webkit-appearance:none;border:1px solid var(--border2)}
+.drawer-overlay{display:none;position:fixed;inset:0;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:200}
+.drawer-overlay.open{display:block}
+
+@media(max-width:1100px){.content-grid{grid-template-columns:1fr}.side-panel{display:grid;grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .sidebar{-webkit-transform:translateX(100%);transform:translateX(100%)}
+  .sidebar.open{-webkit-transform:translateX(0);transform:translateX(0)}
+  .main{margin-right:0;padding:0 0 60px}
+  .main-inner{padding:14px}
+  .mobile-topbar{display:flex}
+  .topbar{margin-bottom:14px}
+  .hero{padding:22px 18px;border-radius:18px}
+  .hero-title{font-size:24px}
+  .hero-nm{font-size:44px}
+  .kpi-row{grid-template-columns:repeat(2,1fr)}
+  .weather-strip{grid-template-columns:repeat(3,1fr)}
+  .side-panel{grid-template-columns:1fr}
+  .filter-row{-webkit-flex-direction:column;flex-direction:column}
+  select,input[type="text"]{min-width:unset;width:100%}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">⛵</div>
+      <div>
+        <div class="logo-text">ונונו תומר</div>
+        <div class="logo-sub">Sailing Command Center</div>
+      </div>
+    </div>
+    <div class="sidebar-section">ניווט</div>
+    <nav class="sidebar-nav">
+      <button class="nav-item active" onclick="window.scrollTo(0,0);closeDrawer()">🧭 סקירה כללית</button>
+      <button class="nav-item" onclick="jumpTo('map-section')">🗺 מפה</button>
+      <button class="nav-item" onclick="jumpTo('legs-section')">⚓ מקטעים</button>
+    </nav>
+    <div class="sidebar-section">לוח זמנים</div>
+    <div class="sidebar-tl" id="timeline-items"></div>
+    <div class="sidebar-bottom">
+      <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">🌙 Dark</button>
+      <div style="font-size:10px;color:var(--text3)">v3.0</div>
+    </div>
+  </aside>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="main">
+    <!-- Mobile topbar -->
+    <div class="mobile-topbar">
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="logo-icon" style="width:28px;height:28px;font-size:14px">⛵</div>
+        <span style="font-size:13px;font-weight:700;color:var(--text)">ונונו תומר</span>
+      </div>
+      <button class="hamburger" onclick="openDrawer()">☰</button>
+    </div>
+
+    <div class="main-inner" style="max-width:980px;margin:0 auto">
+
+      <!-- Topbar -->
+      <div class="topbar">
+        <div class="topbar-left">
+          <h1>ונונו תומר</h1>
+          <p>הפלגת לפקדה · יוני 2026 · Ionian Islands</p>
+        </div>
+        <div class="topbar-right">
+          <div class="tag-pill">
+            <span class="status-dot" id="status-dot"></span>
+            <span id="status-text">מוכן להפלגה</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="hero-left">
+            <div class="hero-eyebrow">⚓ Expedition 2026</div>
+            <div class="hero-title">הפלגת מסורת <span>לפקדה</span></div>
+            <div class="hero-desc">הפלגת מסורת 6 ימים — 12 מקטעי הפלגה ו-9 נקודות עגינה ואתרי עניין בין האיים היפים ביותר בים האיוני</div>
+            <div class="hero-pills">
+              <span class="hero-pill">📅 13–20 יוני 2026</span>
+              <span class="hero-pill">📍 Lefkas Marina</span>
+              <span class="hero-pill">🌊 Ionian Sea</span>
+            </div>
+          </div>
+          <div class="hero-right">
+            <div class="hero-nm" id="hero-nm">75.6</div>
+            <div class="hero-nm-label">Nautical Miles</div>
+            <div class="hero-progress"><div class="hero-progress-bar" id="hero-bar"></div></div>
+            <div class="hero-progress-label" id="hero-plabel">100% מסלול מתוכנן</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI -->
+      <div class="kpi-row">
+        <div class="kpi-card"><div class="kpi-icon blue">📅</div><div class="kpi-label">ימי הפלגה</div><div class="kpi-val" id="kpi-days">6</div><div class="kpi-sub" id="kpi-days-sub">14–19 יוני</div></div>
+        <div class="kpi-card"><div class="kpi-icon indigo">⚓</div><div class="kpi-label">מקטעי LEG</div><div class="kpi-val" id="kpi-legs">12</div><div class="kpi-sub" id="kpi-legs-sub">6 ימי הפלגה פעילים</div></div>
+        <div class="kpi-card"><div class="kpi-icon green">📍</div><div class="kpi-label">נקודות SPOT</div><div class="kpi-val" id="kpi-spots">9</div><div class="kpi-sub">עגינות ואתרי עניין</div></div>
+        <div class="kpi-card"><div class="kpi-icon amber">🧭</div><div class="kpi-label">מרחק כולל</div><div class="kpi-val" id="kpi-nm">75.6</div><div class="kpi-sub">Nautical Miles</div></div>
+      </div>
+
+      <!-- WEATHER — הערכה לאזור הים האיוני, לאימות בזמן אמת ב-Windy -->
+      <div class="weather-strip">
+        <div class="weather-day"><div class="weather-date">14/06 א'</div><div class="weather-icon">☀️</div><div class="weather-temp">28°C</div><div class="weather-wind">🌬 8–12 kn</div><div class="weather-sea">🌊 0.3m</div></div>
+        <div class="weather-day"><div class="weather-date">15/06 ב'</div><div class="weather-icon">🌤️</div><div class="weather-temp">27°C</div><div class="weather-wind">🌬 10–15 kn</div><div class="weather-sea">🌊 0.5m</div></div>
+        <div class="weather-day"><div class="weather-date">16/06 ג'</div><div class="weather-icon">⛅</div><div class="weather-temp">26°C</div><div class="weather-wind">🌬 12–18 kn</div><div class="weather-sea">🌊 0.6m</div></div>
+        <div class="weather-day"><div class="weather-date">17/06 ד'</div><div class="weather-icon">☀️</div><div class="weather-temp">29°C</div><div class="weather-wind">🌬 6–10 kn</div><div class="weather-sea">🌊 0.2m</div></div>
+        <div class="weather-day"><div class="weather-date">18-19/06</div><div class="weather-icon">☀️</div><div class="weather-temp">28°C</div><div class="weather-wind">🌬 8–14 kn</div><div class="weather-sea">🌊 0.4m</div></div>
+      </div>
+      <div class="weather-note">⚠️ הערכה לאזור הים האיוני — לאימות בזמן אמת: <a href="https://www.windy.com/?38.8,20.7,8" target="_blank">Windy</a></div>
+
+      <!-- MAP -->
+      <div class="map-section" id="map-section">
+        <div class="map-header">
+          <h3>🗺 מפת מסלול אינטראקטיבית</h3>
+          <span style="font-size:11px;color:var(--text3)" id="map-label">מפה סכמטית · Ionian Sea</span>
+        </div>
+        <div id="map-container"></div>
+      </div>
+
+      <!-- CONTENT GRID -->
+      <div class="content-grid" id="legs-section">
+        <!-- Filters + Results -->
+        <div>
+          <div class="filters-panel">
+            <div class="filters-header">
+              <div class="filters-title">🔽 סינון</div>
+              <button class="btn-reset" onclick="resetFilters()">↺ אפס</button>
+            </div>
+            <div class="filter-row">
+              <div class="filter-group">
+                <div class="filter-label">📅 תאריך</div>
+                <select id="date-filter" onchange="applyFilters()">
+                  <option value="">כל הימים</option>
+                  <option value="2026-06-14">14/06 — יום ראשון</option>
+                  <option value="2026-06-15">15/06 — יום שני</option>
+                  <option value="2026-06-16">16/06 — יום שלישי</option>
+                  <option value="2026-06-17">17/06 — יום רביעי</option>
+                  <option value="2026-06-18">18/06 — יום חמישי</option>
+                  <option value="2026-06-19">19/06 — יום שישי</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <div class="filter-label">📍 מקום</div>
+                <input type="text" id="place-filter" placeholder="חפש מקום..." oninput="applyFilters()"/>
+              </div>
+              <div class="filter-group">
+                <div class="filter-label">🔽 סוג</div>
+                <div class="type-toggle">
+                  <button class="type-btn active" onclick="setType('all',this)">הכל</button>
+                  <button class="type-btn" onclick="setType('Leg',this)">LEG</button>
+                  <button class="type-btn" onclick="setType('Spot',this)">SPOT</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="results-count" id="results-count"></div>
+          <div class="results" id="results"></div>
+        </div>
+
+        <!-- Side Panel -->
+        <div class="side-panel">
+          <div class="side-card">
+            <div class="side-card-title">📊 התקדמות יומית</div>
+            <div class="progress-items" id="progress-items"></div>
+          </div>
+          <div class="side-card">
+            <div class="side-card-title">⏱ ETA מקטעים</div>
+            <div id="eta-rows"></div>
+          </div>
+          <div class="side-card">
+            <div class="side-card-title">💡 Route Intelligence</div>
+            <div id="intel-rows"></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /main-inner -->
+  </main>
+</div><!-- /app -->
+
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+
+<script>
+// ══════════════════════════════════════════════
+// DATA — עדכן כאן את הנתונים בהתאם ל-Google Sheets
+// ══════════════════════════════════════════════
+var DATA = [
+  {date:"2026-06-14",day:"יום ראשון",leg:"Leg1",type:"Leg",from:"Lefkas Marina",to:"Abelaki Bay",coordFrom:"38° 49.87' N, 20° 42.77' E",coordTo:"38° 39.97' N, 20° 47.40' E",dist:"11",dur:"02h:10'",navily:"https://www.navily.com/mouillage/abelaki-bay/18128"},
+  {date:"2026-06-14",day:"יום ראשון",leg:"Leg1.1",type:"Leg",from:"Abelaki Bay",to:"Spartakhori (Maganisi) Marina",coordFrom:"38° 39.97' N, 20° 47.40' E",coordTo:"38° 39.70' N, 20° 45.55' E",dist:"3.14",dur:"00h:37'",navily:"https://www.navily.com/port/spartakhori-marina/1439"},
+  {date:"2026-06-14",day:"יום ראשון",leg:"Spot",type:"Spot",from:"",to:"Ormos Kapela",coordFrom:"",coordTo:"38° 40.43' N, 20° 46.93' E",dist:"",dur:"",navily:"https://www.navily.com/mouillage/ormos-kapela/24020"},
+  {date:"2026-06-14",day:"יום ראשון",leg:"Spot",type:"Spot",from:"",to:"Atherinos",coordFrom:"",coordTo:"38° 39.80' N, 20° 47.93' E",dist:"",dur:"",navily:"https://www.navily.com/mouillage/atherinos/22953"},
+  {date:"2026-06-15",day:"יום שני",leg:"Leg2",type:"Leg",from:"Spartakhori (Maganisi) Marina",to:"Afales Beach North",coordFrom:"38° 39.70' N, 20° 45.55' E",coordTo:"38° 28.43' N, 20° 37.98' E",dist:"14.7",dur:"02h:55'",navily:"https://www.navily.com/mouillage/afales-beach-north/60515"},
+  {date:"2026-06-15",day:"יום שני",leg:"Leg2.2",type:"Leg",from:"Afales Beach North",to:"Fiskardo, Kefalonia",coordFrom:"38° 28.43' N, 20° 37.98' E",coordTo:"38° 27.65' N, 20° 34.55' E",dist:"3.4",dur:"00h:41'",navily:"https://www.navily.com/port/fiskardo-harbour/10921"},
+  {date:"2026-06-15",day:"יום שני",leg:"Spot",type:"Spot",from:"",to:"Vathy",coordFrom:"",coordTo:"38° 21.88' N, 20° 43.17' E",dist:"",dur:"",navily:"https://www.navily.com/port/vathy-harbour/11616"},
+  {date:"2026-06-15",day:"יום שני",leg:"Spot",type:"Spot",from:"",to:"Kioni, Ithaka",coordFrom:"",coordTo:"38° 26.95' N, 20° 41.43' E",dist:"",dur:"",navily:"https://www.navily.com/port/kioni/20640"},
+  {date:"2026-06-15",day:"יום שני",leg:"Spot",type:"Spot",from:"",to:"Sarakiniko, Ithaka",coordFrom:"",coordTo:"38° 21.98' N, 20° 44.72' E",dist:"",dur:"",navily:"https://www.navily.com/mouillage/sarakiniko-hulla-beach/23476"},
+  {date:"2026-06-15",day:"יום שני",leg:"Spot",type:"Spot",from:"",to:"Ligia - Ithaka",coordFrom:"",coordTo:"38° 20.08' N, 20° 44.80' E",dist:"",dur:"",navily:"https://www.navily.com/mouillage/limeniskos-agios-ilias/27103"},
+  {date:"2026-06-16",day:"יום שלישי",leg:"Leg3",type:"Leg",from:"Fiskardo, Kefalonia",to:"Evreti North",coordFrom:"38° 27.65' N, 20° 34.55' E",coordTo:"38° 26.28' N, 20° 35.10' E",dist:"7.2",dur:"01h:26'",navily:"https://www.navily.com/mouillage/evreti-north/48884"},
+  {date:"2026-06-16",day:"יום שלישי",leg:"Leg3.1",type:"Leg",from:"Evreti North",to:"Fiskardo, Kefalonia",coordFrom:"38° 26.28' N, 20° 35.10' E",coordTo:"38° 27.65' N, 20° 34.55' E",dist:"7.2",dur:"01h:26'",navily:"https://www.navily.com/port/fiskardo-harbour/10921"},
+  {date:"2026-06-16",day:"יום שלישי",leg:"Spot",type:"Spot",from:"",to:"Ormos Antisamos",coordFrom:"",coordTo:"38° 15.83' N, 20° 40.58' E",dist:"",dur:"",navily:"https://www.navily.com/port/fiskardo-harbour/10921"},
+  {date:"2026-06-16",day:"יום שלישי",leg:"Spot",type:"Spot",from:"",to:"Sami",coordFrom:"",coordTo:"38° 15.20' N, 20° 38.90' E",dist:"",dur:"",navily:"https://www.navily.com/port/port-of-sami/1446"},
+  {date:"2026-06-17",day:"יום רביעי",leg:"Leg4",type:"Leg",from:"Fiskardo, Kefalonia",to:"Katsiki",coordFrom:"38° 27.65' N, 20° 34.55' E",coordTo:"38° 35.85' N, 20° 32.92' E",dist:"9.8",dur:"01h:57'",navily:"https://www.navily.com/mouillage/katsiki/42000"},
+  {date:"2026-06-17",day:"יום רביעי",leg:"Leg4.1",type:"Leg",from:"Katsiki",to:"Sivota",coordFrom:"38° 35.85' N, 20° 32.92' E",coordTo:"38° 37.40' N, 20° 41.03' E",dist:"11.7",dur:"02h:20'",navily:"https://www.navily.com/mouillage/sivota/30588"},
+  {date:"2026-06-18",day:"יום חמישי",leg:"Leg5",type:"Leg",from:"Sivota",to:"Tranquil Bay",coordFrom:"38° 37.40' N, 20° 41.03' E",coordTo:"38° 42.13' N, 20° 42.78' E",dist:"12",dur:"02h:24'",navily:"https://www.navily.com/mouillage/tranquil-bay/14328"},
+  {date:"2026-06-19",day:"יום שישי",leg:"Leg6",type:"Leg",from:"Tranquil Bay",to:"Varko bay",coordFrom:"38° 42.13' N, 20° 42.78' E",coordTo:"38° 45.93' N, 20° 48.27' E",dist:"5.8",dur:"01h:10'",navily:"https://www.navily.com/mouillage/varko/17798"},
+  {date:"2026-06-19",day:"יום שישי",leg:"Leg6.1",type:"Leg",from:"Varko bay",to:"Lefkas Marina",coordFrom:"38° 45.93' N, 20° 48.27' E",coordTo:"38° 49.87' N, 20° 42.77' E",dist:"7.6",dur:"01h:31'",navily:"https://www.navily.com/port/d-marin-lefkas-marina/1405"}
+];
+
+var activeType = "all";
+var isDark = true;
+
+// ── UTILS ──
+function jumpTo(id) {
+  var el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior:'smooth'});
+  closeDrawer();
+}
+
+function parseCoord(str) {
+  if (!str) return null;
+  var m = str.match(/([\d.]+)[°\s]+([\d.]+)['\s]*N[,\s]+([\d.]+)[°\s]+([\d.]+)['\s]*E/i);
+  if (!m) return null;
+  return { lat: parseFloat(m[1]) + parseFloat(m[2])/60, lng: parseFloat(m[3]) + parseFloat(m[4])/60 };
+}
+
+function copyText(text, btn) {
+  // iOS-safe clipboard copy
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function(){
+      btn.textContent = '✓'; setTimeout(function(){ btn.textContent = '⎘'; }, 1500);
+    }).catch(function(){ fallbackCopy(text, btn); });
+  } else {
+    fallbackCopy(text, btn);
+  }
+}
+function fallbackCopy(text, btn) {
+  var ta = document.createElement('textarea');
+  ta.value = text; ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;font-size:16px';
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  try { document.execCommand('copy'); btn.textContent='✓'; setTimeout(function(){btn.textContent='⎘';},1500); } catch(e){}
+  document.body.removeChild(ta);
+}
+
+// ── SVG MAP — עובד על כל דפדפן ללא אינטרנט ──
+function buildMap() {
+  var container = document.getElementById('map-container');
+  var W = container.offsetWidth || container.parentElement && container.parentElement.offsetWidth || window.innerWidth || 800;
+  if (W < 100) W = 800;
+  var H = 340, PAD = 50;
+
+  var pts = [], seen = {};
+  DATA.forEach(function(d) {
+    var pairs = d.type === 'Spot'
+      ? [[d.coordTo, d.to]]
+      : [[d.coordFrom, d.from], [d.coordTo, d.to]];
+    pairs.forEach(function(pair) {
+      var c = pair[0], name = pair[1];
+      if (!c) return;
+      var p = parseCoord(c); if (!p) return;
+      var key = p.lat.toFixed(3)+','+p.lng.toFixed(3);
+      if (seen[key]) return; seen[key] = true;
+      pts.push({lat:p.lat, lng:p.lng, name:name||'', type:d.type, leg:d.leg});
+    });
+  });
+  if (!pts.length) return;
+
+  var lats = pts.map(function(p){return p.lat;});
+  var lngs = pts.map(function(p){return p.lng;});
+  var minLat=Math.min.apply(null,lats), maxLat=Math.max.apply(null,lats);
+  var minLng=Math.min.apply(null,lngs), maxLng=Math.max.apply(null,lngs);
+  var latR = maxLat-minLat||0.1, lngR = maxLng-minLng||0.1;
+
+  function sv(lat,lng){
+    return { x: PAD+(lng-minLng)/lngR*(W-PAD*2), y: H-PAD-(lat-minLat)/latR*(H-PAD*2) };
+  }
+
+  // Route polyline from LEG sequence
+  var legPts = [];
+  DATA.filter(function(d){return d.type==='Leg';}).forEach(function(d){
+    [d.coordFrom,d.coordTo].forEach(function(c){
+      if(!c) return; var p=parseCoord(c); if(!p) return;
+      var s=sv(p.lat,p.lng);
+      legPts.push(s.x.toFixed(1)+','+s.y.toFixed(1));
+    });
+  });
+  var dedup = legPts.filter(function(v,i){return i===0||v!==legPts[i-1];});
+
+  var circles = '';
+  pts.forEach(function(p){
+    var s = sv(p.lat,p.lng);
+    var isStart = p.name==='Lefkas Marina';
+    var col = isStart ? '#10b981' : (p.type==='Spot' ? '#f59e0b' : '#38bdf8');
+    var r = isStart ? 8 : (p.type==='Spot' ? 5 : 6);
+    var lbl = p.name.length>18 ? p.name.slice(0,17)+'…' : p.name;
+    circles +=
+      '<circle cx="'+s.x.toFixed(1)+'" cy="'+s.y.toFixed(1)+'" r="'+(r+5)+'" fill="'+col+'" opacity="0.12"/>'
+     +'<circle cx="'+s.x.toFixed(1)+'" cy="'+s.y.toFixed(1)+'" r="'+r+'" fill="'+col+'" opacity="0.95"/>'
+     +'<text x="'+(s.x+r+4).toFixed(1)+'" y="'+(s.y+4).toFixed(1)+'" font-size="9" fill="rgba(255,255,255,0.65)" font-family="Heebo,Arial,sans-serif">'+lbl+'</text>';
+  });
+
+  container.style.background='linear-gradient(160deg,#071828 0%,#091520 50%,#060e18 100%)';
+  container.innerHTML =
+    '<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:'+H+'px;display:block">'
+   +'<defs>'
+   +'<linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%">'
+   +'<stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#6366f1"/></linearGradient>'
+   +'</defs>'
+   +'<rect width="'+W+'" height="'+H+'" fill="rgba(14,165,233,0.03)"/>'
+   +'<line x1="0" y1="'+Math.round(H/2)+'" x2="'+W+'" y2="'+Math.round(H/2)+'" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>'
+   +'<line x1="'+Math.round(W/2)+'" y1="0" x2="'+Math.round(W/2)+'" y2="'+H+'" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>'
+   +'<polyline points="'+dedup.join(' ')+'" stroke="url(#rg)" stroke-width="2.5" fill="none" stroke-dasharray="8,4" opacity="0.85"/>'
+   +circles
+   +'<text x="12" y="'+(H-10)+'" font-size="9" fill="rgba(255,255,255,0.3)" font-family="Heebo,Arial,sans-serif">מפה סכמטית · Ionian Sea · Greece</text>'
+   +'</svg>';
+
+  // Try to upgrade to Leaflet (real map) if online
+  loadLeafletAsync();
+}
+
+// ── LEAFLET ASYNC UPGRADE — bonus אם יש אינטרנט ──
+function loadLeafletAsync() {
+  if (window.location.protocol === "file:") return;
+  if (typeof L !== 'undefined') { upgradeToLeaflet(); return; }
+  var css = document.createElement('link');
+  css.rel='stylesheet'; css.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'; css.crossOrigin='anonymous';
+  var script = document.createElement('script');
+  script.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'; script.crossOrigin='anonymous';
+  script.onload = function(){ setTimeout(upgradeToLeaflet, 150); };
+  script.onerror = function(){ /* נשאר SVG */ };
+  document.head.appendChild(css);
+  document.head.appendChild(script);
+}
+
+function upgradeToLeaflet() {
+  if (typeof L === 'undefined') return;
+  try {
+    var container = document.getElementById('map-container');
+    container.innerHTML = '<div id="lmap" style="height:340px"></div>';
+    var map = L.map('lmap', {zoomControl:true,attributionControl:true});
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap',maxZoom:17}).addTo(map);
+
+    function mkI(col,sz){ return L.divIcon({html:'<div style="width:'+sz+'px;height:'+sz+'px;background:'+col+';border:2px solid #fff;border-radius:50%;box-shadow:0 0 8px '+col+'99"></div>',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2],className:''}); }
+    var iLeg=mkI('#38bdf8',12), iSpot=mkI('#f59e0b',10), iStart=mkI('#10b981',14);
+
+    var legLL=[], allLL=[], added={};
+    DATA.filter(function(d){return d.type==='Leg';}).forEach(function(d){
+      [d.coordFrom,d.coordTo].forEach(function(c){ var p=parseCoord(c); if(p){legLL.push([p.lat,p.lng]);allLL.push([p.lat,p.lng]);} });
+    });
+    if(legLL.length>1) L.polyline(legLL,{color:'#38bdf8',weight:2.5,opacity:0.75,dashArray:'8,4'}).addTo(map);
+
+    DATA.forEach(function(d){
+      var cs=d.type==='Spot'?[d.coordTo]:[d.coordFrom,d.coordTo];
+      cs.forEach(function(c,i){
+        var p=parseCoord(c); if(!p) return;
+        var k=p.lat.toFixed(4)+','+p.lng.toFixed(4); if(added[k]) return; added[k]=true;
+        allLL.push([p.lat,p.lng]);
+        var nm=d.type==='Spot'?d.to:(i===0?d.from:d.to);
+        var ic=nm==='Lefkas Marina'?iStart:(d.type==='Spot'?iSpot:iLeg);
+        var nav=d.navily?'<br><a href="'+d.navily+'" target="_blank" style="color:#38bdf8;font-size:11px">⚓ Navily</a>':'';
+        L.marker([p.lat,p.lng],{icon:ic}).addTo(map).bindPopup(
+          '<div style="font-family:Heebo,Arial,sans-serif;min-width:140px">'
+         +'<strong style="font-size:13px">'+nm+'</strong><br>'
+         +'<span style="font-size:10px;color:#aaa">'+(d.type==='Spot'?'📍 SPOT':'⚓ '+d.leg)+'</span><br>'
+         +(d.dist?'<span style="font-size:11px">📏 '+d.dist+' NM</span><br>':'')
+         +(d.dur?'<span style="font-size:11px">⏱ '+d.dur+'</span><br>':'')
+         +'<span style="font-size:10px;color:#aaa">'+p.lat.toFixed(4)+'°N '+p.lng.toFixed(4)+'°E</span>'+nav
+         +'</div>',{maxWidth:200});
+      });
+    });
+    if(allLL.length) map.fitBounds(allLL,{padding:[30,30]});
+    document.getElementById('map-label').textContent='OpenStreetMap · לחץ על נקודה לפרטים';
+  } catch(e){ console.warn('Leaflet failed:',e.message); }
+}
+
+// ── SIDEBAR TIMELINE ──
+function buildTimeline() {
+  var byDay={};
+  DATA.filter(function(d){return d.type==='Leg'&&d.date;}).forEach(function(d){
+    if(!byDay[d.date]) byDay[d.date]={day:d.day,legs:[]};
+    byDay[d.date].legs.push(d);
+  });
+  var html='<div class="tl-title">לוח זמנים</div>';
+  Object.keys(byDay).sort().forEach(function(date){
+    var g=byDay[date], p=date.split('-');
+    var nm=g.legs.reduce(function(s,l){return s+(parseFloat(l.dist)||0);},0).toFixed(1);
+    var last=g.legs[g.legs.length-1];
+    html+='<div class="tl-item" onclick="filterByDate(\''+date+'\')">'
+      +'<div class="tl-dot"></div>'
+      +'<div>'
+      +'<div class="tl-date">'+p[2]+'/'+p[1]+' · '+g.day+'</div>'
+      +'<div class="tl-name">'+(g.legs[0].from||'')+' → '+(last.to||'')+'</div>'
+      +'<div class="tl-date">'+nm+' NM</div>'
+      +'</div></div>';
+  });
+  document.getElementById('timeline-items').innerHTML=html;
+}
+
+// ── PROGRESS ──
+function buildProgress() {
+  var byDay={};
+  DATA.filter(function(d){return d.type==='Leg'&&d.date;}).forEach(function(d){
+    if(!byDay[d.date]) byDay[d.date]={nm:0};
+    byDay[d.date].nm+=parseFloat(d.dist)||0;
+  });
+  var total=Object.keys(byDay).reduce(function(s,k){return s+byDay[k].nm;},0)||1;
+  var html='';
+  Object.keys(byDay).sort().forEach(function(date){
+    var g=byDay[date], p=date.split('-');
+    var pct=Math.round(g.nm/total*100);
+    html+='<div class="progress-item">'
+      +'<div class="progress-item-label">'+p[2]+'/'+p[1]+'</div>'
+      +'<div class="progress-item-bar"><div class="progress-item-fill" style="width:'+pct+'%"></div></div>'
+      +'<div class="progress-item-val">'+g.nm.toFixed(1)+'</div>'
+      +'</div>';
+  });
+  document.getElementById('progress-items').innerHTML=html;
+}
+
+// ── ETA ──
+function buildETA() {
+  var legs=DATA.filter(function(d){return d.type==='Leg'&&d.dur;}).slice(0,7);
+  document.getElementById('eta-rows').innerHTML=legs.map(function(d){
+    return '<div class="eta-item">'
+      +'<div><div class="eta-leg">'+d.leg+'</div><div style="font-size:11px;color:var(--text3)">'+(d.dist?d.dist+' NM':'')+'</div></div>'
+      +'<div style="text-align:left"><div class="eta-time">'+d.dur+'</div><div class="eta-badge">מתוכנן</div></div>'
+      +'</div>';
+  }).join('');
+}
+
+// ── ROUTE INTELLIGENCE ──
+function buildIntel() {
+  var legs=DATA.filter(function(d){return d.type==='Leg';});
+  var byDay={};
+  legs.forEach(function(d){if(!byDay[d.date])byDay[d.date]=0; byDay[d.date]+=parseFloat(d.dist)||0;});
+  var sorted=Object.keys(byDay).map(function(k){return[k,byDay[k]];}).sort(function(a,b){return b[1]-a[1];});
+  var maxDay=sorted[0];
+  var maxLeg=legs.slice().sort(function(a,b){return(parseFloat(b.dist)||0)-(parseFloat(a.dist)||0);})[0];
+  var totalNM=legs.reduce(function(s,d){return s+(parseFloat(d.dist)||0);},0);
+  var nDays=Object.keys(byDay).length||1;
+  var totalMins=legs.reduce(function(s,d){
+    var m=d.dur&&d.dur.match(/(\d+)h[:\s]*(\d+)/);
+    return s+(m?parseInt(m[1])*60+parseInt(m[2]):0);
+  },0);
+  var mp=maxDay?maxDay[0].split('-'):['','',''];
+  document.getElementById('intel-rows').innerHTML=
+    '<div class="intel-row"><span style="color:var(--text3)">יום ארוך ביותר</span><span style="color:var(--text);font-weight:600">'+(mp[2]||'')+'/'+( mp[1]||'')+' — '+(maxDay?maxDay[1].toFixed(1):0)+' NM</span></div>'
+   +'<div class="intel-row"><span style="color:var(--text3)">מקטע ארוך ביותר</span><span style="color:var(--text);font-weight:600">'+(maxLeg?maxLeg.leg:'')+' — '+(maxLeg?maxLeg.dist:0)+' NM</span></div>'
+   +'<div class="intel-row"><span style="color:var(--text3)">ממוצע יומי</span><span style="color:var(--text);font-weight:600">'+(totalNM/nDays).toFixed(1)+' NM</span></div>'
+   +'<div class="intel-row"><span style="color:var(--text3)">סה"כ זמן הפלגה</span><span style="color:var(--accent);font-weight:600">'+Math.floor(totalMins/60)+'h '+totalMins%60+"'</span></div>";
+}
+
+// ── FILTERS ──
+function setType(t,btn){
+  activeType=t;
+  document.querySelectorAll('.type-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  applyFilters();
+}
+function resetFilters(){
+  document.getElementById('date-filter').value='';
+  document.getElementById('place-filter').value='';
+  activeType='all';
+  document.querySelectorAll('.type-btn').forEach(function(b,i){b.classList.toggle('active',i===0);});
+  applyFilters();
+}
+function filterByDate(date){
+  document.getElementById('date-filter').value=date;
+  applyFilters();
+  jumpTo('legs-section');
+}
+
+function applyFilters(){
+  var dateVal=document.getElementById('date-filter').value;
+  var placeVal=document.getElementById('place-filter').value.toLowerCase().trim();
+  var filtered=DATA.filter(function(d){
+    if(dateVal&&d.date!==dateVal) return false;
+    if(activeType!=='all'&&d.type!==activeType) return false;
+    if(placeVal&&(d.from+' '+d.to).toLowerCase().indexOf(placeVal)===-1) return false;
+    return true;
+  });
+  document.getElementById('results-count').textContent=filtered.length>0?filtered.length+' תוצאות':'';
+  var container=document.getElementById('results');
+  if(!filtered.length){container.innerHTML='<div class="empty">😶 לא נמצאו תוצאות</div>';return;}
+
+  var byDay={};
+  filtered.forEach(function(d){if(!byDay[d.date])byDay[d.date]={day:d.day,items:[]};byDay[d.date].items.push(d);});
+  var html='';
+  Object.keys(byDay).sort().forEach(function(date){
+    var group=byDay[date], parts=(date||'--').split('-');
+    var dayNM=group.items.filter(function(i){return i.type==='Leg';}).reduce(function(s,i){return s+(parseFloat(i.dist)||0);},0);
+    html+='<div class="day-header">'
+      +'<span class="day-badge">'+(parts[2]||'')+'/'+( parts[1]||'')+'</span>'
+      +'<span class="day-name">'+(group.day||'')+'</span>'
+      +(dayNM>0?'<span class="day-dist">'+dayNM.toFixed(1)+' NM</span>':'')
+      +'</div>';
+
+    group.items.forEach(function(item){
+      var isSpot=item.type==='Spot';
+      var coord=parseCoord(item.coordTo);
+      var displayCoords=isSpot?item.coordTo:(item.coordFrom&&item.coordTo?item.coordFrom+'  →  '+item.coordTo:item.coordTo);
+      var badgeLabel=isSpot?'📍 SPOT':'⚓ '+item.leg;
+      var titleName=isSpot?item.to:item.from+' → '+item.to;
+
+      html+='<div class="leg-card '+(isSpot?'spot':'leg')+'">'
+        +'<div class="leg-top">'
+        +'<span class="leg-badge '+(isSpot?'spot-type':'leg-type')+'">'+badgeLabel+'</span>'
+        +'<span class="leg-name">'+titleName+'</span>'
+        +'</div>';
+
+      if(!isSpot){
+        html+='<div class="arrow-row">📍 <span class="place">'+item.from+'</span> → 📌 <span class="place">'+item.to+'</span></div>';
+        if(item.dist||item.dur){
+          html+='<div class="leg-meta">';
+          if(item.dist) html+='<div class="leg-field">↔ מרחק: <span>'+item.dist+' NM</span></div>';
+          if(item.dur)  html+='<div class="leg-field">⏱ זמן: <span>'+item.dur+'</span></div>';
+          html+='</div>';
+        }
+      }
+
+      if(displayCoords){
+        html+='<div class="leg-coords">🧭 <span class="coord-text">'+displayCoords+'</span>'
+          +'<button class="copy-btn" onclick="copyText('+JSON.stringify(displayCoords)+',this)" title="העתק">⎘</button>'
+          +'</div>';
+      }
+
+      html+='<div class="leg-actions">';
+      if(item.navily) html+='<a href="'+item.navily+'" class="action-btn primary" target="_blank" rel="noopener">⚓ Navily</a>';
+      if(coord){
+        html+='<a href="https://www.google.com/maps?q='+coord.lat.toFixed(5)+','+coord.lng.toFixed(5)+'" class="action-btn" target="_blank" rel="noopener">🗺 Google Maps</a>';
+        html+='<a href="https://www.windy.com/?'+coord.lat.toFixed(5)+','+coord.lng.toFixed(5)+',12" class="action-btn" target="_blank" rel="noopener">💨 Windy</a>';
+      }
+      html+='</div></div>';
+    });
+  });
+  container.innerHTML=html;
+}
+
+// ── THEME ──
+function toggleTheme(){
+  isDark=!isDark;
+  document.body.classList.toggle('light',!isDark);
+  document.getElementById('theme-btn').textContent=isDark?'🌙 Dark':'☀️ Light';
+}
+
+// ── MOBILE DRAWER ──
+function openDrawer(){ document.getElementById('sidebar').classList.add('open'); document.getElementById('drawer-overlay').classList.add('open'); }
+function closeDrawer(){ document.getElementById('sidebar').classList.remove('open'); document.getElementById('drawer-overlay').classList.remove('open'); }
+
+
+
+// ══════════════════════════════════════════════
+// GOOGLE SHEETS — קריאה אוטומטית בכל פתיחה
+// ══════════════════════════════════════════════
+var SHEET1_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7Uil4saNoQOIXeIVATReHQMn2-FeneSq9-uh-3xBE5C1Gar8zmdIwZeQyTMAZQQ/pub?gid=1227445614&single=true&output=csv";
+var CSV_URL = SHEET1_CSV_URL;
+
+function parseCSV(text) {
+  var lines = text.trim().split(/\r?\n/);
+  if (lines.length < 2) return [];
+  function parseLine(line) {
+    var vals = [], cur = '', inQ = false;
+    for (var j = 0; j < line.length; j++) {
+      var ch = line[j];
+      if (ch === '"' && inQ && line[j + 1] === '"') { cur += '"'; j++; }
+      else if (ch === '"') { inQ = !inQ; }
+      else if (ch === ',' && !inQ) { vals.push(cur.trim()); cur = ''; }
+      else { cur += ch; }
+    }
+    vals.push(cur.trim());
+    return vals.map(function(v){ return v.replace(/^"|"$/g,'').trim(); });
+  }
+  var headers = parseLine(lines[0]);
+  var rows = [];
+  for (var i = 1; i < lines.length; i++) {
+    var vals = parseLine(lines[i]);
+    if (vals.every(function(v){ return !v; })) continue;
+    var row = {};
+    headers.forEach(function(h,idx){ row[h] = vals[idx] || ''; });
+    rows.push(row);
+  }
+  return rows;
+}
+
+function findVal(row, keys) {
+  for (var i=0; i<keys.length; i++) {
+    var k = keys[i];
+    if (row[k] !== undefined && row[k] !== '') return row[k];
+    for (var h in row) {
+      if (h.toLowerCase().indexOf(String(k).toLowerCase()) !== -1 && row[h] !== '') return row[h];
+    }
+  }
+  return '';
+}
+
+function rowToData(row) {
+  var leg = findVal(row, ['מקטע','Leg','leg']);
+  var from = findVal(row, ['מוצא','Departure','from','From']);
+  var to = findVal(row, ['יעד','Destination','to','To']);
+  if (!leg) return null;
+  if (['Leg','Departure','Destination'].indexOf(leg) !== -1 || from === 'Departure' || to === 'Destination') return null;
+
+  var type = (leg && leg.toLowerCase().indexOf('spot') !== -1) ? 'Spot' : 'Leg';
+  var dateRaw = findVal(row, ['תאריך','Date','date']);
+  var dateISO = '';
+  if (dateRaw) {
+    var d = new Date(dateRaw);
+    if (!isNaN(d.getTime())) {
+      dateISO = d.toISOString().slice(0,10);
+    } else {
+      var m = dateRaw.match(/(\d{1,2})[\/.](\d{1,2})[\/.](\d{2,4})/);
+      if (m) {
+        var y = m[3].length===2?'20'+m[3]:m[3];
+        dateISO = y+'-'+m[2].padStart(2,'0')+'-'+m[1].padStart(2,'0');
+      }
+    }
+  }
+  var dayNames = {'0':'יום ראשון','1':'יום שני','2':'יום שלישי','3':'יום רביעי','4':'יום חמישי','5':'יום שישי','6':'שבת'};
+  var day = findVal(row, ['יום','Day','day']).replace(/\u00a0/g, ' ');
+  if (!day && dateISO) {
+    var dd = new Date(dateISO+'T12:00:00');
+    day = dayNames[String(dd.getDay())] || '';
+  }
+  return {
+    date: dateISO,
+    day: day,
+    leg: leg,
+    type: type,
+    from: from,
+    to: to,
+    coordFrom: findVal(row, ['קורדינטות מוצא','Start_Coordinates','coordFrom','coord from']),
+    coordTo: findVal(row, ['קורדינטות יעד','End_Coordinates','coordTo','coord to']),
+    dist: findVal(row, ['מרחק','Distance_NM','distance','dist']).replace(/[^\d.]/g,''),
+    dur: findVal(row, ['זמן הפלגה מתוכנן','Duration','duration','dur','זמן']),
+    navily: findVal(row, ['קישור  למידע','קישור למידע','Info_URL','navily','url','קישור'])
+  };
+}
+
+function loadFromSheets(onDone) {
+  // כשנפתח מקומית (file://) — עובר ישר לנתונים שמורים
+  if (window.location.protocol === 'file:') { onDone(null, false); return; }
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', CSV_URL, true);
+  xhr.timeout = 8000;
+  xhr.onload = function() {
+    if (xhr.status === 200 && xhr.responseText) {
+      try {
+        var rows = parseCSV(xhr.responseText);
+        var mapped = rows.map(rowToData).filter(Boolean);
+        if (mapped.length > 0) {
+          onDone(mapped, true);
+          return;
+        }
+      } catch(e) {}
+    }
+    onDone(null, false);
+  };
+  xhr.onerror = function() { onDone(null, false); };
+  xhr.ontimeout = function() { onDone(null, false); };
+  xhr.send();
+}
+
+function updateStatusPill(live) {
+  var dot = document.getElementById('status-dot');
+  var txt = document.getElementById('status-text');
+  if (!dot || !txt) return;
+  if (live) {
+    dot.style.background = '#10b981';
+    dot.style.boxShadow = '0 0 6px rgba(16,185,129,0.9)';
+    txt.textContent = 'נתונים חיים מ-Sheets';
+  } else {
+    dot.style.background = '#f59e0b';
+    dot.style.boxShadow = '0 0 6px rgba(245,158,11,0.8)';
+    txt.textContent = 'מוכן להפלגה';
+  }
+}
+
+function formatDateShort(dateISO) {
+  if (!dateISO) return '';
+  var p = dateISO.split('-');
+  return p.length === 3 ? p[2]+'/'+p[1] : dateISO;
+}
+
+function updateSummaryMetrics() {
+  var legs = DATA.filter(function(d){ return d.type === 'Leg'; });
+  var spots = DATA.filter(function(d){ return d.type === 'Spot'; });
+  var dates = {};
+  legs.forEach(function(d){ if (d.date) dates[d.date] = true; });
+  var sortedDates = Object.keys(dates).sort();
+  var totalNM = legs.reduce(function(sum,d){ return sum + (parseFloat(d.dist) || 0); }, 0);
+  var nmText = totalNM ? totalNM.toFixed(1) : '0';
+
+  document.getElementById('hero-nm').textContent = nmText;
+  document.getElementById('kpi-nm').textContent = nmText;
+  document.getElementById('kpi-days').textContent = sortedDates.length;
+  document.getElementById('kpi-legs').textContent = legs.length;
+  document.getElementById('kpi-spots').textContent = spots.length;
+  document.getElementById('kpi-legs-sub').textContent = sortedDates.length + ' ימי הפלגה פעילים';
+  if (sortedDates.length) {
+    document.getElementById('kpi-days-sub').textContent = formatDateShort(sortedDates[0]) + '–' + formatDateShort(sortedDates[sortedDates.length - 1]);
+  }
+}
+
+// ── INIT ──
+function runDashboard() {
+  updateSummaryMetrics();
+  buildTimeline();
+  buildProgress();
+  buildETA();
+  buildIntel();
+  buildMap();
+  applyFilters();
+  setTimeout(function(){
+    var bar = document.getElementById('hero-bar');
+    if (bar) bar.style.width = '100%';
+  }, 400);
+}
+
+// טעינה מ-Sheets, fallback לנתונים מקומיים
+loadFromSheets(function(sheetData, live) {
+  if (sheetData && sheetData.length > 0) {
+    DATA = sheetData;
+  }
+  updateStatusPill(live);
+  runDashboard();
+});
+</script>
+</body>
+</html>
