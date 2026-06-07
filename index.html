@@ -852,7 +852,7 @@ function rowToData(row) {
       var isoM = ds.match(/^(\d{4})-(\d{2})-(\d{2})/);
       if (isoM) dateISO = isoM[0];
     }
-  }}
+  }
   var dayNames = {'0':'יום ראשון','1':'יום שני','2':'יום שלישי','3':'יום רביעי','4':'יום חמישי','5':'יום שישי','6':'שבת'};
   var day = findVal(row, ['יום','Day','day']).replace(/\u00a0/g, ' ');
   if (!day && dateISO) {
