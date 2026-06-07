@@ -209,6 +209,21 @@ select:focus,input:focus{border-color:var(--accent)}
   .filter-row{-webkit-flex-direction:column;flex-direction:column}
   select,input[type="text"]{min-width:unset;width:100%}
 }
+
+.flight-kpi-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+.flight-kpi-card{background:var(--panel);border:1px solid var(--b2);border-radius:var(--radius);padding:18px 20px;position:relative;overflow:hidden}
+.flight-kpi-card::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at top left,rgba(167,139,250,0.06),transparent 60%)}
+.fk-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.fk-icon{font-size:22px}
+.fk-title{font-size:13px;font-weight:700;color:var(--tx);flex:1}
+.fk-date{font-size:11px;color:var(--ac);background:rgba(56,189,248,0.1);border:1px solid rgba(56,189,248,0.2);border-radius:999px;padding:2px 10px}
+.fk-route{font-size:14px;font-weight:600;color:var(--tx);margin-bottom:12px;line-height:1.4}
+.fk-times{display:flex;align-items:center;gap:10px;background:var(--panel2);border-radius:var(--r3);padding:10px 14px}
+.fk-time-item{display:flex;flex-direction:column;gap:3px}
+.fk-time-label{font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px}
+.fk-time-val{font-size:18px;font-weight:800;color:var(--tx);line-height:1}
+.fk-arrow{font-size:18px;color:var(--tx3);margin:0 4px}
+@media(max-width:600px){.flight-kpi-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -272,7 +287,7 @@ select:focus,input:focus{border-color:var(--accent)}
             <div class="hero-title">הפלגת מסורת <span>לפקדה</span></div>
             <div class="hero-desc">הפלגת מסורת 6 ימים — 12 מקטעי הפלגה ו-9 נקודות עגינה ואתרי עניין בין האיים היפים ביותר בים האיוני</div>
             <div class="hero-pills">
-              <span class="hero-pill">📅 13–20 יוני 2026</span>
+              <span class="hero-pill">📅 <span id="hero-pill-days">...</span></span>
               <span class="hero-pill">📍 Lefkas Marina</span>
               <span class="hero-pill">🌊 Ionian Sea</span>
             </div>
@@ -287,12 +302,40 @@ select:focus,input:focus{border-color:var(--accent)}
       </div>
 
       <!-- KPI -->
-      <div class="kpi-row">
-        <div class="kpi-card"><div class="kpi-icon blue">📅</div><div class="kpi-label">ימי הפלגה</div><div class="kpi-val" id="kpi-days">6</div><div class="kpi-sub" id="kpi-days-sub">14–19 יוני</div></div>
-        <div class="kpi-card"><div class="kpi-icon indigo">⚓</div><div class="kpi-label">מקטעי LEG</div><div class="kpi-val" id="kpi-legs">12</div><div class="kpi-sub" id="kpi-legs-sub">6 ימי הפלגה פעילים</div></div>
-        <div class="kpi-card"><div class="kpi-icon green">📍</div><div class="kpi-label">נקודות SPOT</div><div class="kpi-val" id="kpi-spots">9</div><div class="kpi-sub">עגינות ואתרי עניין</div></div>
-        <div class="kpi-card"><div class="kpi-icon amber">🧭</div><div class="kpi-label">מרחק כולל</div><div class="kpi-val" id="kpi-nm">75.6</div><div class="kpi-sub">Nautical Miles</div></div>
+      <div class="flight-kpi-row">
+        <div class="flight-kpi-card">
+          <div class="fk-header">
+            <span class="fk-icon">🛫</span>
+            <span class="fk-title">טיסה הלוך</span>
+            <span class="fk-date" id="flight-out-date">—</span>
+          </div>
+          <div class="fk-route" id="flight-out-route">טוען...</div>
+          <div class="fk-times">
+            <span class="fk-time-item"><span class="fk-time-label">המראה</span><span class="fk-time-val" id="flight-out-dep">—</span></span>
+            <span class="fk-arrow">→</span>
+            <span class="fk-time-item"><span class="fk-time-label">נחיתה</span><span class="fk-time-val" id="flight-out-arr">—</span></span>
+          </div>
+        </div>
+        <div class="flight-kpi-card">
+          <div class="fk-header">
+            <span class="fk-icon">🛬</span>
+            <span class="fk-title">טיסה חזור</span>
+            <span class="fk-date" id="flight-back-date">—</span>
+          </div>
+          <div class="fk-route" id="flight-back-route">טוען...</div>
+          <div class="fk-times">
+            <span class="fk-time-item"><span class="fk-time-label">המראה</span><span class="fk-time-val" id="flight-back-dep">—</span></span>
+            <span class="fk-arrow">→</span>
+            <span class="fk-time-item"><span class="fk-time-label">נחיתה</span><span class="fk-time-val" id="flight-back-arr">—</span></span>
+          </div>
+        </div>
       </div>
+      <span id="kpi-days" style="display:none"></span>
+      <span id="kpi-legs" style="display:none"></span>
+      <span id="kpi-spots" style="display:none"></span>
+      <span id="kpi-nm" style="display:none"></span>
+      <span id="kpi-days-sub" style="display:none"></span>
+      <span id="kpi-legs-sub" style="display:none"></span>
 
       <!-- WEATHER — הערכה לאזור הים האיוני, לאימות בזמן אמת ב-Windy -->
       <div class="weather-strip">
@@ -668,7 +711,7 @@ function filterByDate(date){
 function applyFilters(){
   var dateVal=document.getElementById('date-filter').value;
   var placeVal=document.getElementById('place-filter').value.toLowerCase().trim();
-  var filtered=DATA.filter(function(d){
+  var filtered=DATA.filter(function(d){ if(d.leg&&d.leg.indexOf('טיסה')!==-1) return false;
     if(dateVal&&d.date!==dateVal) return false;
     if(activeType!=='all'&&d.type!==activeType) return false;
     if(placeVal&&(d.from+' '+d.to).toLowerCase().indexOf(placeVal)===-1) return false;
@@ -876,8 +919,42 @@ function formatDateShort(dateISO) {
   return p.length === 3 ? p[2]+'/'+p[1] : dateISO;
 }
 
+function formatDateRange(d1, d2) {
+  if (!d1) return '';
+  var months = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+  var p1=d1.split('-'), p2=d2?d2.split('-'):p1;
+  return parseInt(p1[2])+'–'+parseInt(p2[2])+' '+months[parseInt(p1[1])-1]+' '+p1[0];
+}
+
+function updateFlightCards() {
+  var flights = DATA.filter(function(d){
+    return d.leg && d.leg.indexOf('טיסה') !== -1;
+  });
+  function fillCard(prefix, f) {
+    if (!f) return;
+    var months = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+    var dateEl=document.getElementById(prefix+'-date');
+    var routeEl=document.getElementById(prefix+'-route');
+    var depEl=document.getElementById(prefix+'-dep');
+    var arrEl=document.getElementById(prefix+'-arr');
+    if (dateEl && f.date) {
+      var p=f.date.split('-');
+      dateEl.textContent = parseInt(p[2])+' '+months[parseInt(p[1])-1];
+    }
+    if (routeEl) routeEl.textContent = (f.from||'—')+' → '+(f.to||'—');
+    if (depEl)   depEl.textContent   = f.coordFrom || '—';
+    if (arrEl)   arrEl.textContent   = f.coordTo   || '—';
+  }
+  fillCard('flight-out',  flights[0]||null);
+  fillCard('flight-back', flights[flights.length-1]||null);
+}
+
 function updateSummaryMetrics() {
-  var legs = DATA.filter(function(d){ return d.type === 'Leg'; });
+  var legs = DATA.filter(function(d){
+    if (d.type !== 'Leg') return false;
+    if (d.leg && d.leg.indexOf('טיסה') !== -1) return false;
+    return true;
+  });
   var spots = DATA.filter(function(d){ return d.type === 'Spot'; });
   var dates = {};
   legs.forEach(function(d){ if (d.date) dates[d.date] = true; });
@@ -886,6 +963,12 @@ function updateSummaryMetrics() {
   var nmText = totalNM ? totalNM.toFixed(1) : '0';
 
   document.getElementById('hero-nm').textContent = nmText;
+
+  var pillEl = document.getElementById('hero-pill-days');
+  if (pillEl && sortedDates.length > 0) {
+    pillEl.textContent = sortedDates.length + ' ימי הפלגה · ' + formatDateRange(sortedDates[0], sortedDates[sortedDates.length-1]);
+  }
+  updateFlightCards();
   document.getElementById('kpi-nm').textContent = nmText;
   document.getElementById('kpi-days').textContent = sortedDates.length;
   document.getElementById('kpi-legs').textContent = legs.length;
