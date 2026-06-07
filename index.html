@@ -842,17 +842,17 @@ function rowToData(row) {
   var dateRaw = findVal(row, ['תאריך','Date','date']);
   var dateISO = '';
   if (dateRaw) {
-    var d = new Date(dateRaw);
-    if (!isNaN(d.getTime())) {
-      dateISO = d.toISOString().slice(0,10);
+    // Parse locally — no UTC shift (Israel is UTC+3)
+    var ds = String(dateRaw).trim();
+    var dm = ds.match(/(\d{1,2})[\/\.\-](\d{1,2})[\/\.\-](\d{2,4})/);
+    if (dm) {
+      var yr = dm[3].length===2?'20'+dm[3]:dm[3];
+      dateISO = yr+'-'+dm[2].padStart(2,'0')+'-'+dm[1].padStart(2,'0');
     } else {
-      var m = dateRaw.match(/(\d{1,2})[\/.](\d{1,2})[\/.](\d{2,4})/);
-      if (m) {
-        var y = m[3].length===2?'20'+m[3]:m[3];
-        dateISO = y+'-'+m[2].padStart(2,'0')+'-'+m[1].padStart(2,'0');
-      }
+      var isoM = ds.match(/^(\d{4})-(\d{2})-(\d{2})/);
+      if (isoM) dateISO = isoM[0];
     }
-  }
+  }}
   var dayNames = {'0':'יום ראשון','1':'יום שני','2':'יום שלישי','3':'יום רביעי','4':'יום חמישי','5':'יום שישי','6':'שבת'};
   var day = findVal(row, ['יום','Day','day']).replace(/\u00a0/g, ' ');
   if (!day && dateISO) {
