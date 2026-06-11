@@ -5,11 +5,11 @@
   <meta name="theme-color" content="#00d4aa">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Ionian Islands">
+  <meta name="apple-mobile-web-app-title" content="T-Mate Ionian Islands">
   <link rel="apple-touch-icon" href="icon.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ונונו תומר — הפלגת האיים הסרונים 2026</title>
+<title>ונונו תומר — הפלגת לפקדה 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -275,7 +275,7 @@ select:focus,input:focus{border-color:var(--accent)}
       <div class="topbar">
         <div class="topbar-left">
           <h1>ונונו תומר</h1>
-          <p>הפלגת האיים הסרונים · יולי 2026 · Saronic Gulf</p>
+          <p>הפלגת לפקדה · יוני 2026 · Ionian Islands</p>
         </div>
         <div class="topbar-right">
           <div class="tag-pill">
@@ -290,12 +290,12 @@ select:focus,input:focus{border-color:var(--accent)}
         <div class="hero-inner">
           <div class="hero-left">
             <div class="hero-eyebrow">⚓ Expedition 2026</div>
-            <div class="hero-title"> הפלגת חברים <span>האיים הסרונים</span></div>
-            <div class="hero-desc">כ-12 מקטעי הפלגה ונקודות עגינה בין האיים היפים ביותר במפרץ הסרוני</div>
+            <div class="hero-title">הפלגת מסורת <span>לפקדה</span></div>
+            <div class="hero-desc">הפלגת מסורת 6 ימים — 12 מקטעי הפלגה ו-9 נקודות עגינה ואתרי עניין בין האיים היפים ביותר בים האיוני</div>
             <div class="hero-pills">
               <span class="hero-pill">📅 <span id="hero-pill-days">...</span></span>
-              <span class="hero-pill">📍 Alimos Marina</span>
-              <span class="hero-pill">🌊 Saronic Gulf</span>
+              <span class="hero-pill">📍 Lefkas Marina</span>
+              <span class="hero-pill">🌊 Ionian Sea</span>
             </div>
           </div>
           <div class="hero-right">
@@ -351,7 +351,7 @@ select:focus,input:focus{border-color:var(--accent)}
         <div class="weather-day"><div class="weather-date">17/06 ד'</div><div class="weather-icon">☀️</div><div class="weather-temp">29°C</div><div class="weather-wind">🌬 6–10 kn</div><div class="weather-sea">🌊 0.2m</div></div>
         <div class="weather-day"><div class="weather-date">18-19/06</div><div class="weather-icon">☀️</div><div class="weather-temp">28°C</div><div class="weather-wind">🌬 8–14 kn</div><div class="weather-sea">🌊 0.4m</div></div>
       </div>
-      <div class="weather-note">⚠️ הערכה לאזור הים האיוני — לאימות בזמן אמת: <a href="https://www.windy.com/?37.5,23.3,8" target="_blank">Windy</a></div>
+      <div class="weather-note">⚠️ הערכה לאזור הים האיוני — לאימות בזמן אמת: <a href="https://www.windy.com/?38.8,20.7,8" target="_blank">Windy</a></div>
 
       <!-- MAP -->
       <div class="map-section" id="map-section">
@@ -376,12 +376,12 @@ select:focus,input:focus{border-color:var(--accent)}
                 <div class="filter-label">📅 תאריך</div>
                 <select id="date-filter" onchange="applyFilters()">
                   <option value="">כל הימים</option>
-                  <option value="2026-07-05">05/07 — יום ראשון</option>
-                  <option value="2026-07-06">06/07 — יום שני</option>
-                  <option value="2026-07-07">07/07 — יום שלישי</option>
-                  <option value="2026-07-08">08/07 — יום רביעי</option>
-                  <option value="2026-07-09">09/07 — יום חמישי</option>
-                  <option value="2026-07-10">10/07 — יום שישי</option>
+                  <option value="2026-06-14">14/06 — יום ראשון</option>
+                  <option value="2026-06-15">15/06 — יום שני</option>
+                  <option value="2026-06-16">16/06 — יום שלישי</option>
+                  <option value="2026-06-17">17/06 — יום רביעי</option>
+                  <option value="2026-06-18">18/06 — יום חמישי</option>
+                  <option value="2026-06-19">19/06 — יום שישי</option>
                 </select>
               </div>
               <div class="filter-group">
@@ -796,7 +796,7 @@ function closeDrawer(){ document.getElementById('sidebar').classList.remove('ope
 // ══════════════════════════════════════════════
 // GOOGLE SHEETS — קריאה אוטומטית בכל פתיחה
 // ══════════════════════════════════════════════
-var SHEET1_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7Uil4saNoQOIXeIVATReHQMn2-FeneSq9-uh-3xBE5C1Gar8zmdIwZeQyTMAZQQ/pub?gid=1712824016&single=true&output=csv";
+var SHEET1_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7Uil4saNoQOIXeIVATReHQMn2-FeneSq9-uh-3xBE5C1Gar8zmdIwZeQyTMAZQQ/pub?gid=1227445614&single=true&output=csv";
 var CSV_URL = SHEET1_CSV_URL;
 
 function parseCSV(text) {

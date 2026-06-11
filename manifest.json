@@ -1,7 +1,7 @@
 {
   "name": "T-Mate Ionian Islands",
   "short_name": "Ionian Islands",
-  "description": "דשבורד הפלגה - איי יוון",
+  "description": "דשבורד הפלגה - איי יוון האיוניים",
   "start_url": "/sailing-dashboard/",
   "scope": "/sailing-dashboard/",
   "display": "standalone",
